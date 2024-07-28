@@ -19,7 +19,25 @@ fun CarList(
     modifier: Modifier = Modifier,
     paddingValues: PaddingValues
 ) {
+    LazyColumn(
+        modifier = modifier,
+        contentPadding = PaddingValues(
+            top = paddingValues.calculateTopPadding() + 22.dp,
+            bottom = 90.dp
+        )
+    ) {
 
+        itemsIndexed(luxuriousCars) { index, car ->
+            CarItem(
+                car = car,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(230.dp),
+            )
+            Spacer(modifier = Modifier.height(22.dp))
+        }
+
+    }
 }
 
 

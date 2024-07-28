@@ -84,7 +84,33 @@ class MainActivity : ComponentActivity() {
         hazeState: HazeState,
         paddingValues: PaddingValues
     ) {
+        Box(
+            modifier = modifier
+        ) {
+            CarList(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .haze(
+                        state = hazeState,
+                        style = HazeStyle(
+                            blurRadius = 13.dp, tint = Blur
+                        )
+                    ),
+                paddingValues = paddingValues
+            )
 
+            BottomBar(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 26.dp)
+                    .align(Alignment.BottomStart)
+                    .padding(bottom = 26.dp)
+                    .hazeChild(
+                        state = hazeState,
+                        shape = RoundedCornerShape(26.dp)
+                    )
+            )
+        }
     }
 }
 
